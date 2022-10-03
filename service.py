@@ -115,17 +115,17 @@ def post():
             logger.info('trying to update user')
             update_response = requests.post(f"{base_url}/{function}", headers=headers, data=json.dumps(element))
             if update_response.status_code == 200:
-                logger.info(f"User has been updated!")
+                logger.info(f"User {element['email']} has been updated!")
             else:
-                logger.error(f"Failed to update user, with error: {update_response.content}")
+                logger.error(f"Failed to update user {element['email']}, with error: {update_response.content}")
         
         if function == "users":
             logger.info('trying to create user')
             create_response = requests.post(f"{base_url}/{function}", headers=headers, data=json.dumps(element))
             if create_response.status_code == 201:
-                logger.info(f"User has been created!")
+                logger.info(f"User {element['email']} has been created!")
             else:
-                logger.error(f"Failed to create user, with error: {create_response.content}")
+                logger.error(f"Failed to create user {element['email']}, with error: {create_response.content}")
 
         else:
             logger.info('Nothing to do...')
