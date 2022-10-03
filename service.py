@@ -118,7 +118,7 @@ def post():
                 if 'email' in element:
                     logger.info(f"User {element['email']} has been updated!")
                 else:
-                    logger.info(f"User has been updated!")
+                    logger.info(f"{function} has been deleted!")
 
             else:
                 if 'email' in element:
